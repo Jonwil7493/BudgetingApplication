@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budgeting App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Budgeting Tool with Data Visualization</h1>
+        </header>
+
+        <!-- Budget Overview Section -->
+        <section class="budget-overview">
+            <h2>Budget Overview</h2>
+            <div class="summary">
+                <h3>Income</h3>
+                <p id="income">$0.00</p>
+            </div>
+            <div class="expenses">
+                <h3>Expenses</h3>
+                <p id="expenseAmount">$0.00</p>
+            </div>
+        </section>
+
+        <!-- Add Transaction Section -->
+        <section class="transactions">
+            <h2>Add Transaction</h2>
+            <form id="transaction">
+                <div class="form-group">
+                    <label id="" for="type">Type:</label>
+                    <select id="type" name="type">
+                        <option value="income">Income</option>
+                        <option value="expense">Expenses</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <input type="text" id="category" name="category" placeholder="e.g., Rent, Salary, etc." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" name="amount" step="0.01" placeholder="Enter amount" required>
+                </div>
+
+                <button type="submit">Add Transaction</button>
+            </form>
+        </section>
+
+        <!-- Chart Section -->
+        <section class="chart">
+            <h2>Visualize Transactions</h2>
+            <canvas id="incomeVsExpenseChart" width="400" height="400"></canvas>
+            <canvas id="expenseCategoriesChart" width="400" height="400"></canvas>
+        </section>
+
+        <!-- Transaction List Section -->
+        <section class="transactions-list">
+            <h2>Transaction List</h2>
+            <ul id="transactionList"></ul>
+        </section>
+
+        <!-- Transaction Table Section -->
+        <section class="transaction-table">
+            <h2>Transaction Table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionTableBody"></tbody>
+            </table>
+        </section>
+        
+        <!-- Clear All Transactions Button -->
+        <button id="clearAll" class="clear-btn">Clear All Transactions</button>
+    </div>
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
